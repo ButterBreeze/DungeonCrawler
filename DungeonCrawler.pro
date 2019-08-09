@@ -25,13 +25,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        database.cpp \
         main.cpp \
         mainwindow.cpp \
-        tinyxml2.cpp
+        processmodel.cpp \
+        table.cpp \
+        tinyxml2.cpp \
+        xmlparser.cpp
 
 HEADERS += \
+        database.h \
         mainwindow.h \
-        tinyxml2.h
+        processmodel.h \
+        table.h \
+        tinyxml2.h \
+        vxmlparser.h \
+        xmlparser.h
 
 FORMS += \
         mainwindow.ui
