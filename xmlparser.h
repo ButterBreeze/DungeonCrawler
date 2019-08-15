@@ -3,6 +3,7 @@
 #include "vxmlparser.h"
 #include "tinyxml2.h"
 #include "table.h"
+#include "database.h"
 
 class XmlParser :  public VXmlParser
 {
