@@ -1,0 +1,3 @@
+"C:\Users\asdf\Desktop\CLion 2018.3.3\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\ProcessObjects.dir/objects.a
+C:\Qt\Tools\mingw730_64\bin\ar.exe cr CMakeFiles\ProcessObjects.dir/objects.a @CMakeFiles\ProcessObjects.dir\objects1.rsp
+C:\Qt\Tools\mingw730_64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\ProcessObjects.dir/objects.a -Wl,--no-whole-archive  -o ProcessObjects.exe -Wl,--out-implib,libProcessObjects.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ProcessObjects.dir\linklibs.rsp

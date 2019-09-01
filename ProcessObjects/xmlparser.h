@@ -11,8 +11,7 @@ private:
     std::vector<Table> getTablesFromFiles(std::vector<std::string> tables);
 
 public:
-    XmlParser();
-    std::vector<Database> GetDatabasesFromFile(std::string filePath);
+    std::vector<Database> getDatabasesFromFile(std::string filePath) override;
 };
 
 #endif // XMLPARSER_H

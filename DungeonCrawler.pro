@@ -25,6 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        ProcessObjects/column.cpp \
+        ProcessObjects/database.cpp \
+        ProcessObjects/processmodel.cpp \
+        ProcessObjects/table.cpp \
+        ProcessObjects/tinyxml2.cpp \
+        ProcessObjects/xmlparser.cpp \
         database.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -34,6 +40,13 @@ SOURCES += \
         xmlparser.cpp
 
 HEADERS += \
+        ProcessObjects/column.h \
+        ProcessObjects/database.h \
+        ProcessObjects/processmodel.h \
+        ProcessObjects/table.h \
+        ProcessObjects/tinyxml2.h \
+        ProcessObjects/vxmlparser.h \
+        ProcessObjects/xmlparser.h \
         database.h \
         mainwindow.h \
         processmodel.h \

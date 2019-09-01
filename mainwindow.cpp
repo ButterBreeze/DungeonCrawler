@@ -6,9 +6,8 @@
 #include <vector>
 #include <windows.h>
 #include <fstream>
-#include "tinyxml2.h"
+#include "ProcessObjects/tinyxml2.h"
 
-std::vector<std::string> getFilesToParse();
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -21,4 +20,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_btnCrawlTheDatabase_clicked()
+{
 
+}

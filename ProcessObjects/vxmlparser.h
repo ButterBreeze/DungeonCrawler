@@ -3,11 +3,13 @@
 #include <iostream>
 #include <vector>
 #include "database.h"
+#include "table.h"
 
 class VXmlParser
 {
-    virtual std::vector<Database> GetDatabasesFromFile(std::string filePath);
-
+public:
+    virtual std::vector<Database> getDatabasesFromFile(std::string filePath) = 0;
 };
+
 
 #endif // VXMLPARSER_H

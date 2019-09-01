@@ -1,10 +1,8 @@
 #include "xmlparser.h"
 
-XmlParser::XmlParser()
-{
 
-}
-std::vector<Database> XmlParser::GetDatabasesFromFile(std::string filePath)
+
+std::vector<Database> XmlParser::getDatabasesFromFile(std::string filePath)
 {
     //setup for the config file
     tinyxml2::XMLDocument configFile;
@@ -20,28 +18,26 @@ std::vector<Database> XmlParser::GetDatabasesFromFile(std::string filePath)
 
     //gonna grab the database's inside of the config
     std::vector<std::string> databaseNames;
-    tinyxml2::XMLElement* databaseDoc;
-    if((databaseDoc = configRoot->FirstChildElement("database")) == nullptr)
+    tinyxml2::XMLElement* databaseElement;
+    if((databaseElement = configRoot->FirstChildElement("database")) == nullptr)
     {
         throw std::runtime_error("Config file had no database elements");
     }
     do
     {
-        databaseNames.push_back(databaseDoc->GetText());
+        databaseNames.emplace_back(databaseElement->GetText());
     } while(configRoot->NextSiblingElement("database") != nullptr);
 
     //gonna grab all the database xml files for the tables in them and where to place them
-
-
     std::vector<Database> databases;
 
-    for(unsigned int i = 0; i < databaseNames.size(); i++)//todo: fix this by making database a folder
+    for (std::string &databaseName : databaseNames)//todo: fix this by making database a folder
     {
         std::vector<std::string> tableNames;
         tinyxml2::XMLDocument databaseDoc;
-        tinyxml2::XMLError eResult = databaseDoc.LoadFile(databaseNames[i].c_str());
+        tinyxml2::XMLError eResultDatabase = databaseDoc.LoadFile(databaseName.c_str());
 
-        if(eResult != tinyxml2::XML_SUCCESS)
+        if(eResultDatabase != tinyxml2::XML_SUCCESS)
         {
             throw std::runtime_error("could not open config file");
         }
@@ -54,24 +50,24 @@ std::vector<Database> XmlParser::GetDatabasesFromFile(std::string filePath)
         }
         do
         {
-            tableNames.push_back(table->GetText());
+            tableNames.emplace_back(table->GetText());
         } while(databaseRoot->NextSiblingElement("table") != nullptr);
 
         Database database;
-        database.setName(databaseNames[i]);
+        database.setName(databaseName);
         database.addTables(getTablesFromFiles(tableNames));
     }
     return databases;
 }
 
-
 std::vector<Table> XmlParser::getTablesFromFiles(std::vector<std::string> tableNames)
 {
     std::vector<Table> tables;
-    for(unsigned int i = 0; i< tableNames.size(); i++)
-    {
+    for (std::string &tableName : tableNames) {
+
         tinyxml2::XMLDocument tableDoc;
-        tinyxml2::XMLError eResult = tableDoc.LoadFile(tableNames[i].c_str());
+        tinyxml2::XMLError eResult = tableDoc.LoadFile(tableName.c_str());
+        Table table = Table();
         if(eResult != tinyxml2::XML_SUCCESS)
         {
             throw std::runtime_error("could not open config file");
@@ -82,13 +78,14 @@ std::vector<Table> XmlParser::getTablesFromFiles(std::vector<std::string> tableN
         {
              throw std::runtime_error("Table file had no database elements");
         }
+        std::vector<Column> newColumns;
         do
         {
-            //todo: add columns
+            newColumns.emplace_back(Column()); //todo: add column details
         } while(tableRoot-> NextSiblingElement("columnn") != nullptr);
-
+        table.addColumns(newColumns);
+        tables.emplace_back(table);
     }
 
     return tables;
 }
-

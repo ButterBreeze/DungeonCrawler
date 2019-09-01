@@ -3,13 +3,15 @@
 #include <iostream>
 #include "vxmlparser.h"
 #include <vector>
+#include "database.h"
 class ProcessModel
 {
 private:
- std::vector<std::string> getFilesToParse();
- VXmlParser xmlParser;
+    std::vector<Database> getFilesToParse();
+ VXmlParser* xmlParser;
+
 public:
-    ProcessModel(VXmlParser vXmlParser);
+    ProcessModel(VXmlParser* vXmlParser);
 
 };
 
