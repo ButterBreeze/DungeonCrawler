@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-06-03T22:53:03
+# Project created by QtCreator 2019-09-01T14:40:21
 #
 #-------------------------------------------------
 
@@ -27,17 +27,13 @@ CONFIG += c++11
 SOURCES += \
         ProcessObjects/column.cpp \
         ProcessObjects/database.cpp \
+        ProcessObjects/main.cpp \
         ProcessObjects/processmodel.cpp \
         ProcessObjects/table.cpp \
         ProcessObjects/tinyxml2.cpp \
         ProcessObjects/xmlparser.cpp \
-        database.cpp \
         main.cpp \
-        mainwindow.cpp \
-        processmodel.cpp \
-        table.cpp \
-        tinyxml2.cpp \
-        xmlparser.cpp
+        mainwindow.cpp
 
 HEADERS += \
         ProcessObjects/column.h \
@@ -47,13 +43,7 @@ HEADERS += \
         ProcessObjects/tinyxml2.h \
         ProcessObjects/vxmlparser.h \
         ProcessObjects/xmlparser.h \
-        database.h \
-        mainwindow.h \
-        processmodel.h \
-        table.h \
-        tinyxml2.h \
-        vxmlparser.h \
-        xmlparser.h
+        mainwindow.h
 
 FORMS += \
         mainwindow.ui

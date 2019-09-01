@@ -20,7 +20,3 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_btnCrawlTheDatabase_clicked()
-{
-
-}
